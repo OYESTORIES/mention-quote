@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Inspire Quotes - A collection of inspiring quotes in Telugu and English. Find motivation, love, life, friendship, and success quotes daily.">
+    <meta name="keywords" content="quotes, Telugu quotes, English quotes, motivation, inspiration, love quotes, success">
+    <meta name="author" content="Inspire Quotes">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Inspire Quotes - Daily Inspiration">
+    <meta property="og:description" content="Explore inspiring quotes in Telugu and English">
+    <meta property="og:type" content="website">
+    
+    <title>Inspire Quotes - Daily Inspiration in Telugu & English</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-content">
+                <div class="logo">
+                    <i class="fas fa-lightbulb"></i>
+                    <span>Inspire Quotes</span>
+                </div>
+                <div class="menu-toggle" id="menuToggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="#" onclick="showPage('home')" class="active">Home</a></li>
+                    <li><a href="#" onclick="showPage('categories')">Categories</a></li>
+                    <li><a href="#" onclick="showPage('telugu')">Telugu</a></li>
+                    <li><a href="#" onclick="showPage('english')">English</a></li>
+                    <li><a href="#" onclick="showPage('about')">About</a></li>
+                    <li><a href="#" onclick="showPage('contact')">Contact</a></li>
+                    <li><a href="#" onclick="showPage('admin')" class="admin-link">Admin</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <!-- Home Page -->
+            <div id="home" class="page active">
+                <!-- Daily Featured Quote -->
+                <section class="featured-quote">
+                    <div class="featured-content">
+                        <h2>Quote of the Day</h2>
+                        <div class="featured-quote-card" id="featuredQuote">
+                            <i class="fas fa-quote-left quote-icon"></i>
+                            <p id="featuredText"></p>
+                            <p id="featuredAuthor"></p>
+                            <div class="featured-buttons">
+                                <button onclick="copyFeaturedQuote()" class="btn-copy"><i class="fas fa-copy"></i> Copy</button>
+                                <button onclick="shareFeaturedQuote('whatsapp')" class="btn-share"><i class="fab fa-whatsapp"></i></button>
+                                <button onclick="shareFeaturedQuote('facebook')" class="btn-share"><i class="fab fa-facebook"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Search Bar -->
+                <section class="search-section">
+                    <div class="search-container">
+                        <input type="text" id="searchInput" placeholder="Search quotes..." onkeyup="searchQuotes()">
+                        <i class="fas fa-search"></i>
+                    </div>
+                </section>
+
+                <!-- Latest Quotes -->
+                <section class="quotes-section">
+                    <h2>Latest Quotes</h2>
+                    <div class="quotes-grid" id="latestQuotes">
+                        <!-- Quotes will be loaded here -->
+                    </div>
+                </section>
+            </div>
+
+            <!-- Categories Page -->
+            <div id="categories" class="page">
+                <h1>Browse by Category</h1>
+                <div class="categories-grid">
+                    <div class="category-card" onclick="filterByCategory('motivation')">
+                        <i class="fas fa-fire"></i>
+                        <h3>Motivation</h3>
+                    </div>
+                    <div class="category-card" onclick="filterByCategory('love')">
+                        <i class="fas fa-heart"></i>
+                        <h3>Love</h3>
+                    </div>
+                    <div class="category-card" onclick="filterByCategory('life')">
+                        <i class="fas fa-leaf"></i>
+                        <h3>Life</h3>
+                    </div>
+                    <div class="category-card" onclick="filterByCategory('friendship')">
+                        <i class="fas fa-handshake"></i>
+                        <h3>Friendship</h3>
+                    </div>
+                    <div class="category-card" onclick="filterByCategory('success')">
+                        <i class="fas fa-trophy"></i>
+                        <h3>Success</h3>
+                    </div>
+                </div>
+                <div class="quotes-grid" id="categoryQuotes">
+                    <!-- Category quotes will be loaded here -->
+                </div>
+            </div>
+
+            <!-- Telugu Quotes Page -->
+            <div id="telugu" class="page">
+                <h1>తెలుగు కోట్‌లు (Telugu Quotes)</h1>
+                <div class="language-filter">
+                    <select id="teluguCategoryFilter" onchange="filterTeluguByCategory()">
+                        <option value="">All Categories</option>
+                        <option value="motivation">Motivation</option>
+                        <option value="love">Love</option>
+                        <option value="life">Life</option>
+                        <option value="friendship">Friendship</option>
+                        <option value="success">Success</option>
+                    </select>
+                </div>
+                <div class="quotes-grid" id="teluguQuotes">
+                    <!-- Telugu quotes will be loaded here -->
+                </div>
+            </div>
+
+            <!-- English Quotes Page -->
+            <div id="english" class="page">
+                <h1>English Quotes</h1>
+                <div class="language-filter">
+                    <select id="englishCategoryFilter" onchange="filterEnglishByCategory()">
+                        <option value="">All Categories</option>
+                        <option value="motivation">Motivation</option>
+                        <option value="love">Love</option>
+                        <option value="life">Life</option>
+                        <option value="friendship">Friendship</option>
+                        <option value="success">Success</option>
+                    </select>
+                </div>
+                <div class="quotes-grid" id="englishQuotes">
+                    <!-- English quotes will be loaded here -->
+                </div>
+            </div>
+
+            <!-- About Page -->
+            <div id="about" class="page">
+                <h1>About Inspire Quotes</h1>
+                <div class="about-content">
+                    <div class="about-section">
+                        <h2><i class="fas fa-lightbulb"></i> Our Mission</h2>
+                        <p>At Inspire Quotes, we believe that the right words at the right time can transform lives. Our mission is to provide you with daily inspiration through carefully curated quotes in Telugu and English.</p>
+                    </div>
+                    <div class="about-section">
+                        <h2><i class="fas fa-globe"></i> Bilingual Collection</h2>
+                        <p>We offer quotes in both Telugu and English to ensure that we reach a wider audience. Whether you prefer quotes in your native language or want to practice English, we have something for everyone.</p>
+                    </div>
+                    <div class="about-section">
+                        <h2><i class="fas fa-star"></i> Why Choose Us?</h2>
+                        <ul>
+                            <li>✨ Carefully curated quotes from renowned personalities</li>
+                            <li>✨ Easy-to-use interface for finding inspiration</li>
+                            <li>✨ Share your favorite quotes with friends and family</li>
+                            <li>✨ Daily featured quote to start your day with motivation</li>
+                            <li>✨ Category-based browsing for quick discovery</li>
+                            <li>✨ Fast, responsive design for all devices</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contact Page -->
+            <div id="contact" class="page">
+                <h1>Get in Touch</h1>
+                <div class="contact-container">
+                    <div class="contact-info">
+                        <h2>Contact Information</h2>
+                        <div class="info-item">
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <p><strong>Email</strong></p>
+                                <p><a href="mailto:contact@inspirequotes.com">contact@inspirequotes.com</a></p>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-phone"></i>
+                            <div>
+                                <p><strong>Phone</strong></p>
+                                <p>+91 XXXXXXXXXX</p>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div>
+                                <p><strong>Address</strong></p>
+                                <p>Inspire Quotes, India</p>
+                            </div>
+                        </div>
+                    </div>
+                    <form class="contact-form" onsubmit="submitContactForm(event)">
+                        <div class="form-group">
+                            <label for="name">Full Name *</label>
+                            <input type="text" id="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address *</label>
+                            <input type="email" id="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Subject *</label>
+                            <input type="text" id="subject" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message *</label>
+                            <textarea id="message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn-submit">Send Message</button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Admin Panel -->
+            <div id="admin" class="page">
+                <div class="admin-header">
+                    <h1>Admin Panel - Add New Quote</h1>
+                    <p class="password-note">Password: admin123</p>
+                </div>
+                <div class="admin-login" id="adminLogin">
+                    <div class="login-form">
+                        <h2>Admin Login</h2>
+                        <div class="form-group">
+                            <label for="adminPassword">Password</label>
+                            <input type="password" id="adminPassword" placeholder="Enter admin password">
+                        </div>
+                        <button onclick="adminLogin()" class="btn-submit">Login</button>
+                    </div>
+                </div>
+                <div class="admin-panel" id="adminPanel" style="display: none;">
+                    <form onsubmit="addNewQuote(event)">
+                        <div class="form-group">
+                            <label for="quoteText">Quote Text *</label>
+                            <textarea id="quoteText" required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="quoteAuthor">Author *</label>
+                            <input type="text" id="quoteAuthor" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="quoteLanguage">Language *</label>
+                            <select id="quoteLanguage" required>
+                                <option value="">Select Language</option>
+                                <option value="telugu">Telugu</option>
+                                <option value="english">English</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="quoteCategory">Category *</label>
+                            <select id="quoteCategory" required>
+                                <option value="">Select Category</option>
+                                <option value="motivation">Motivation</option>
+                                <option value="love">Love</option>
+                                <option value="life">Life</option>
+                                <option value="friendship">Friendship</option>
+                                <option value="success">Success</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn-submit">Add Quote</button>
+                    </form>
+
+                    <div class="admin-section">
+                        <h3>Manage Quotes</h3>
+                        <div class="quotes-list" id="quotesList">
+                            <!-- Quotes list will be displayed here -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Inspire Quotes</h3>
+                    <p>Daily inspiration in Telugu and English</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#" onclick="showPage('home')">Home</a></li>
+                        <li><a href="#" onclick="showPage('categories')">Categories</a></li>
+                        <li><a href="#" onclick="showPage('about')">About</a></li>
+                        <li><a href="#" onclick="showPage('contact')">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Follow Us</h3>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Inspire Quotes. All rights reserved. | <a href="#">Privacy Policy</a> | <a href="#">Terms & Conditions</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Ad Space (Google AdSense Ready) -->
+    <div class="ad-space">
+        <!-- Google AdSense code can be inserted here -->
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

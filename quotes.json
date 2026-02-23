@@ -1,0 +1,58 @@
+{
+  "quotes": [
+    {
+      "text": "జీవితం ఒక ఉన్నత ఆశీర్వాదం, దానిని దత్త వस్తువుగా భావించవద్దు.",
+      "author": "ఓషో",
+      "language": "telugu",
+      "category": "life"
+    },
+    {
+      "text": "సాఫల్యం దీర్ఘ గమ్యం, ఆ ఆందం పొందటమే ముఖ్యమైనది.",
+      "author": "ఎ. పీ. జె. అబ్దుల్ కలాం",
+      "language": "telugu",
+      "category": "success"
+    },
+    {
+      "text": "ప్రేమ జీవితానికి చిక్కుని, చిక్కు జీవితానికి ఉష్ణ తెచ్చిస్తుంది.",
+      "author": "రవీంద్రనాథ్ ఠాగూర్",
+      "language": "telugu",
+      "category": "love"
+    },
+    {
+      "text": "The only way to do great work is to love what you do.",
+      "author": "Steve Jobs",
+      "language": "english",
+      "category": "success"
+    },
+    {
+      "text": "Life is what happens when you are busy making other plans.",
+      "author": "John Lennon",
+      "language": "english",
+      "category": "life"
+    },
+    {
+      "text": "Love all, trust a few, do wrong to none.",
+      "author": "William Shakespeare",
+      "language": "english",
+      "category": "love"
+    },
+    {
+      "text": "Success is not final, failure is not fatal: it is the courage to continue that counts.",
+      "author": "Winston Churchill",
+      "language": "english",
+      "category": "success"
+    },
+    {
+      "text": "A friend is someone who knows all about you and still loves you.",
+      "author": "Elbert Hubbard",
+      "language": "english",
+      "category": "friendship"
+    },
+    {
+      "text": "Believe you can and you are halfway there.",
+      "author": "Theodore Roosevelt",
+      "language": "english",
+      "category": "motivation"
+    }
+  ]
+}
